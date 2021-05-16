@@ -4,8 +4,9 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"github.com/tempor1s/notiongo/notion"
 	"log"
+
+	"github.com/tempor1s/notiongo/notion"
 )
 
 var (
