@@ -34,7 +34,7 @@ type Client struct {
 
 	// Services for communicating with different parts of the api
 	common service // Reuse a single struct instead of allocating one for each service on the heap.
-	Page  *PageService
+	Page   *PageService
 	User   *UserService
 	Blocks *BlocksService
 }
