@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-type PagesService service
+type PageService service
 
 // PropertyValueEnum ...
 type PropertyValueEnum int
@@ -57,13 +57,13 @@ type WorkspaceParent struct {
 }
 
 // Create will
-func (p *PagesService) Create(ctx context.Context) error {
+func (p *PageService) Create(ctx context.Context) error {
 	return nil
 }
 
-// Get retrieves a Page object using the specified ID
-func (p *PagesService) Get(ctx context.Context, pageID string) (*Page, error) {
-	req, err := p.client.NewRequest("GET", fmt.Sprintf("page/%s", pageID), nil)
+// Retrieve returns a Page object using the specified ID
+func (p *PageService) Retrieve(ctx context.Context, pageID string) (*Page, error) {
+	req, err := p.client.NewRequest("GET", fmt.Sprintf("pages/%s", pageID), nil)
 	if err != nil {
 		return nil, err
 	}

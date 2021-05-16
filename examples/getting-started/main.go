@@ -34,7 +34,7 @@ func main() {
 	}
 
 	log.Println("-- single user --")
-	user, err := instance.User.Get(context.Background(), "29dbbde7-e391-46eb-b2cf-e5a61748bd63")
+	user, err := instance.User.Get(context.Background(), "5fee9b58-2696-491c-92c3-84a08ab05ae7")
 	if err != nil {
 		log.Println("err", err)
 		return

@@ -34,7 +34,7 @@ type Client struct {
 
 	// Services for communicating with different parts of the api
 	common service // Reuse a single struct instead of allocating one for each service on the heap.
-	Pages  *PagesService
+	Page  *PageService
 	User   *UserService
 	Blocks *BlocksService
 }
@@ -61,7 +61,7 @@ func NewClient(token string, httpClient *http.Client) *Client {
 	c.common.client = c
 
 	// Setup services
-	c.Pages = (*PagesService)(&c.common)
+	c.Page = (*PageService)(&c.common)
 	c.User = (*UserService)(&c.common)
 	c.Blocks = (*BlocksService)(&c.common)
 
@@ -114,7 +114,7 @@ func (c *Client) NewRequest(method, urlStr string, body interface{}) (*http.Requ
 // JSON decoded and stored in the value pointed to by v, or returned as an
 // error if an API error has occurred. If v implements the io.Writer interface,
 // the raw response body will be written to v, without attempting to first
-// decode it. If v is nil, and no error hapens, the response is returned as is.
+// decode it. If v is nil, and no error happens, the response is returned as is.
 //
 // The provided ctx must be non-nil, if it is nil an error is returned. If it
 // is canceled or times out, ctx.Err() will be returned.
