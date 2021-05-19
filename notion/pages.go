@@ -53,12 +53,7 @@ type WorkspaceParent struct {
 	Type string
 }
 
-// Create will
-func (p *PageService) Create(ctx context.Context) error {
-	return nil
-}
-
-// Retrieve returns a Page object using the specified ID
+// Retrieve returns a Notion Page object using the specified ID
 func (p *PageService) Retrieve(ctx context.Context, pageID string) (*Page, error) {
 	req, err := p.client.NewRequest("GET", fmt.Sprintf("pages/%s", pageID), nil)
 	if err != nil {
@@ -74,8 +69,22 @@ func (p *PageService) Retrieve(ctx context.Context, pageID string) (*Page, error
 	return page, nil
 }
 
-// helpers
-
-func (p PropertyValueEnum) validate() string {
-	return [...]string{"test"}[p]
+// Update mutates an existing Notion Page object using the specified ID
+//
+// example:
+// '{
+// 	"properties": {
+// 	  "In stock": { "checkbox": true }
+// 	}
+//   }'
+//
+func (p *PageService) Update(ctx context.Context, pageID string, updates Property) (*Page, error) {
+	return nil, nil
 }
+
+// Create creates a new Notion Page object in the specified database or as a child of an existing page
+func (p *PageService) Create(ctx context.Context) (*Page, error) {
+	return nil, nil
+}
+
+// helpers
