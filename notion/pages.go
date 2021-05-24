@@ -7,49 +7,19 @@ import (
 
 type PageService service
 
-// PropertyValueEnum ...
-type PropertyValueEnum int
-
-const (
-	Test PropertyValueEnum = iota
-)
-
 // Page represents the property values of a single Notion page
 type Page struct {
-	Object         string `json:"object"`
-	ID             string `json:"id"`
-	CreatedTime    string `json:"created_time"`
-	LastEditedTime string `json:"last_edited_time"`
-	// Properties Property `json:"properties"`
-}
-
-// Property ...
-type Property struct {
-	Key   string        `json:"key"`
-	Value PropertyValue `json:"value"`
+	Object         string        `json:"object"`
+	ID             string        `json:"id"`
+	CreatedTime    string        `json:"created_time"`
+	LastEditedTime string        `json:"last_edited_time"`
+	Archived       bool          `json:archived"`
+	Properties     PropertyValue `json:"properties"`
 }
 
 // PropertyValue represents the identifier, type, and value of a page property
 type PropertyValue struct {
 	ID   string
-	Type string
-}
-
-// DatabaseParent ...
-type DatabaseParent struct {
-	Type       string
-	DatabaseID string
-}
-
-// PageParent ...
-type PageParent struct {
-	Type   string
-	PageID string
-}
-
-// WorkspaceParent represents a page with a workspace parent is a top-level page within a Notion workspace.
-// The parent property is an object containing the following keys:
-type WorkspaceParent struct {
 	Type string
 }
 
